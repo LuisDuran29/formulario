@@ -6,10 +6,28 @@
 	<title>
 		FORMULARIO
 	</title>
-	<link rel="stylesheet" type="text/css" href="estilos.css">
+
+	 <script type="text/javascript"> <!--
+
+ var tabBody, row, cell;
+ function updateTable(){
+     tabBody=document.getElementById("editable");
+     row=document.createElement("tr");
+     cell = document.createElement("td");
+     cell.innerHTML=document.forms['leds'].elements[3].value;
+     row.appendChild(cell);
+     if(tabBody.childNodes.length==10)
+       tabBody.removeChild(tabBody.childNodes[0])
+     tabBody.appendChild(row);
+ }
+
+  // -->
+  </script>
 	
 </head>
 <body>
+	<!-- <form name="leds" id="ledSend" method="get" target="_blank" action="https://agent.electricimp.com/Fk43xPMkSrWF"> -->
+<form name="leds" id="ledSend" action="" onsubmit="return false;">
 <h1> FORMULARIO DE REGISTRO</h1>
 <form method="post" action="registrar.http">
 	<fieldset>
@@ -76,7 +94,13 @@
 			<option value="Vichada">Vichada</option>
 		</select>
 	</fieldset>
+	<input type="submit" value="Update!" onclick="updateTable();return false;"/>
 
 </form>
+<table border='1'>
+<thead><tr><th>This Could Be You</th></tr></thead>
+<tbody id="editable"></tbody>
+</table>
+
 </body>
 </html>
